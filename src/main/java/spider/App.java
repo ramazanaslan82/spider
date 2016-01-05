@@ -16,25 +16,20 @@ public class App {
 
 	private static void testOne() throws InterruptedException {
 		System.out.println("Basladi");
-		// Optional, if not specified, WebDriver will search your path for
-		// chromedriver.
-		System.setProperty("webdriver.chrome.driver", "/Users/ramazana/Developer/chromedriver");
+		
+        System.setProperty("webdriver.chrome.driver", "/path/to/chrome/driver/chromedriver");
 
 		WebDriver driver = new ChromeDriver();
-		driver.get("https://secure.sahibinden.com/giris/");
+		driver.get("https://secure.bir.site.adresi/login/");
 		Thread.sleep(1000);
 
-		WebElement username = driver.findElement(By.id("username"));
+		WebElement username = driver.findElement(By.id("usernameIdDegeri"));
 		username.sendKeys("testusername");
-		WebElement password = driver.findElement(By.id("password"));
+		WebElement password = driver.findElement(By.id("passwordIdDegeri"));
 		password.sendKeys("test");
-		WebElement submitButton = driver.findElement(By.id("userLoginSubmitButton"));
+		WebElement submitButton = driver.findElement(By.id("submitButonIdDegeri"));
 		submitButton.click();
 
-		/*
-		 * WebElement searchBox = driver.findElement(By.name("q"));
-		 * searchBox.sendKeys("I am crawler"); searchBox.submit();
-		 */
 		Thread.sleep(1000);
 
 		System.out.println(driver.getPageSource());
